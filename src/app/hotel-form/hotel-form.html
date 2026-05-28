@@ -1,0 +1,71 @@
+<div class="py-5 text-center">
+  <h1 class="h2">"Stay Easy" Form</h1>
+  <p class="lead">Below is an example form built entirely with Bootstrap's form controls.</p>
+</div>
+
+<form [formGroup]="rentedRooms" (ngSubmit)="onSubmit()">
+  <div class="row my-3">
+    <div class="col">
+      <label class="form-label text-primary fw-bold">Check-In date:</label>
+      <input type="date" class="form-control" formControlName="checkIn">
+      @if (rentedRooms.get('checkIn')?.invalid && rentedRooms.get('checkIn')?.touched) {
+        <small class="text-danger">Check-In date is required</small>
+      }
+    </div>
+    <div class="col">
+      <label class="form-label text-primary fw-bold">Check-Out date:</label>
+      <input type="date" class="form-control" formOutName="checkOut">
+      @if (rentedRooms.get('checkOut')?.invalid && rentedRooms.get('checkOut')?.touched) {
+        <small class="text-danger">Check-Out date is required</small>
+      }
+    </div>
+  </div>
+
+  <div class="row my-3">
+    <div class="col">
+      <label class="form-label text-primary fw-bold">Room Type:</label>
+      <select class="form-select" formControlName="roomType">
+        <option value="">Choose room type...</option>
+        <option value="Standard">Standard</option>
+        <option value="Deluxe">Deluxe</option>
+        <option value="Suite">Suite</option>
+      </select>
+      @if (rentedRooms.get('roomType')?.invalid && rentedRooms.get('roomType')?.touched) {
+        <small class="text-danger">Room type is required</small>
+      }
+    </div>
+    <div class="col">
+      <label class="form-label text-primary fw-bold">Guests Count:</label>
+      <input type="number" class="form-control" formControlName="guestsCount">
+      @if (rentedRooms.get('guestsCount')?.touched && rentedRooms.get('guestsCount')?.invalid) {
+        <small class="text-danger">Guests Count must be between 1 and 5</small>
+      }
+    </div>
+  </div>
+
+  <div class="row my-3">
+    <div class="col">
+      <label class="form-label text-primary fw-bold">Full Name:</label>
+      <input type="text" class="form-control" formControlName="fullName">
+      @if (rentedRooms.get('fullName')?.touched && rentedRooms.get('fullName')?.invalid) {
+        <small class="text-danger">Fullname is required (minimum 4 characters)</small>
+      }
+    </div>
+    <div class="col">
+      <label class="form-label text-primary fw-bold">Phone Number:</label>
+      <input type="number" class="form-control" formControlName="phoneNumber">
+      @if (rentedRooms.get('phoneNumber')?.invalid && rentedRooms.get('phoneNumber')?.touched) {
+        <small class="text-danger">Phone number is required</small>
+      }
+    </div>
+  </div>
+
+  <div class="row my-3">
+    <div class="col">
+      <label class="form-label text-primary fw-bold">Special Requests:</label>
+      <textarea rows="5" class="form-control" formControlName="specialRequests"></textarea>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-dark" [disabled]="rentedRooms.invalid">Submit</button>
+</form>

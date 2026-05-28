@@ -1,3 +1,24 @@
 import { Routes } from '@angular/router';
+import { Hotel } from './hotel/hotel';
+import { HotelForm } from './hotel-form/hotel-form';
+import { HotelList } from './hotel-list/hotel-list';
 
-export const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    component: Hotel,
+    title: 'Hotel',
+  },
+  {
+    path: 'new',
+    component: HotelForm,
+    title: 'Create Hotel',
+  },
+  {
+    path: 'list',
+    component: HotelList,
+    title: 'Hotel List',
+  },
+];
+
+export default routes;

@@ -1,4 +1,5 @@
 export interface IRoom {
+  id: number;
   checkIn: Date;
   checkOut: Date;
   rootType: string;

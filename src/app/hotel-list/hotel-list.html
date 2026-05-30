@@ -1,1 +1,37 @@
-<p>hotel-list works!</p>
+<h3 class="text-center text-decoration-underline">Rented Rooms List</h3>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Check-In date</th>
+      <th>Check-Out date</th>
+      <th>Guest Count</th>
+      <th>Phone</th>
+      <th>Room Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    @if (roomList.length === 0) {
+      <tr>
+        <td colspan="6" class="text-center text-danger fw-bold">No Rented Rooms Found!</td>
+      </tr>
+    } @else {
+      @for (item of roomList; track item.id) {
+        <tr>
+          <td>{{ item.fullName }}</td>
+          <td>{{ item.checkIn | date: 'short' }}</td>
+          <td>{{ item.checkOut | date: 'short'}}</td>
+          <td>{{ item.guestsCount }}</td>
+          <td>{{ item.phoneNumber }}</td>
+          <td>{{ item.roomType }}</td>
+          <td class="d-flex gap-2">
+            <button class="btn btn-danger btn-sm" (click)="deleteRoom(item)" >Delete</button>
+            <button class="btn btn-secondary btn-sm" [routerLink]="['/edit', item.id]">Edit</button>
+          </td>
+        </tr>
+      }
+    }
+    <tr></tr>
+  </tbody>
+</table>

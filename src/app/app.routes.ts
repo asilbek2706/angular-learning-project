@@ -15,6 +15,11 @@ const routes: Routes = [
     title: 'Create Hotel',
   },
   {
+    path: 'edit/:id',
+    component: HotelForm,
+    title: 'Create Hotel',
+  },
+  {
     path: 'list',
     component: HotelList,
     title: 'Hotel List',

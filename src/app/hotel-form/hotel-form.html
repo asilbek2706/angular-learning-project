@@ -14,7 +14,7 @@
     </div>
     <div class="col">
       <label class="form-label text-primary fw-bold">Check-Out date:</label>
-      <input type="date" class="form-control" formOutName="checkOut">
+      <input type="date" class="form-control" formControlName="checkOut">
       @if (rentedRooms.get('checkOut')?.invalid && rentedRooms.get('checkOut')?.touched) {
         <small class="text-danger">Check-Out date is required</small>
       }
@@ -38,7 +38,7 @@
       <label class="form-label text-primary fw-bold">Guests Count:</label>
       <input type="number" class="form-control" formControlName="guestsCount">
       @if (rentedRooms.get('guestsCount')?.touched && rentedRooms.get('guestsCount')?.invalid) {
-        <small class="text-danger">Guests Count must be between 1 and 5</small>
+        <small class="text-danger">Guests Count must be between 1 and 7</small>
       }
     </div>
   </div>

@@ -1,0 +1,55 @@
+.form-shell {
+	padding: 1.75rem;
+	max-width: 920px;
+	margin: 0 auto;
+}
+
+.form-header {
+	margin-bottom: 1.5rem;
+}
+
+.form-label-lg {
+	font-weight: 700;
+	color: var(--text);
+	margin-bottom: 0.45rem;
+}
+
+.form-control,
+.form-select {
+	border-radius: 1rem;
+	border-color: rgba(25, 35, 45, 0.14);
+	background-color: rgba(255, 255, 255, 0.9);
+	min-height: 3.5rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+	border-color: rgba(17, 75, 95, 0.4);
+	box-shadow: 0 0 0 0.25rem rgba(17, 75, 95, 0.12);
+}
+
+.form-actions {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 0.8rem;
+	margin-top: 1.5rem;
+	padding-top: 1.25rem;
+	border-top: 1px solid rgba(25, 35, 45, 0.08);
+}
+
+@media (max-width: 767.98px) {
+	.form-shell {
+		padding: 1.1rem;
+	}
+
+	.form-actions {
+		flex-direction: column-reverse;
+	}
+
+	.form-actions .btn {
+		width: 100%;
+	}
+}

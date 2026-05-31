@@ -1,1 +1,58 @@
-<p>hotel works!</p>
+<section class="hero-layout">
+	<div class="surface-panel hero-copy">
+		<p class="section-kicker">Boutique booking dashboard</p>
+		<h1 class="page-title">A simple Angular hotel app with a clean, professional feel.</h1>
+		<p class="section-copy hero-text">
+			Track bookings, edit room details, and keep guest data organized in a compact interface that still feels polished.
+		</p>
+
+		<div class="hero-actions">
+			<a routerLink="/new" class="btn btn-primary btn-lg">Create booking</a>
+			<a routerLink="/list" class="btn btn-outline-light btn-lg">View rooms</a>
+		</div>
+
+		<div class="hero-tags">
+			<span>Reactive forms</span>
+			<span>Local storage</span>
+			<span>Responsive layout</span>
+		</div>
+	</div>
+
+	<aside class="hero-aside surface-panel">
+		<p class="section-kicker">Project snapshot</p>
+		<h2>Built to feel small, focused, and finished.</h2>
+
+		<div class="stats-grid">
+			@for (stat of stats; track stat.label) {
+				<article class="stat-card">
+					<strong>{{ stat.value }}</strong>
+					<span>{{ stat.label }}</span>
+				</article>
+			}
+		</div>
+	</aside>
+</section>
+
+<section class="features-grid">
+	@for (item of highlights; track item.title) {
+		<article class="surface-panel feature-card">
+			<h3>{{ item.title }}</h3>
+			<p>{{ item.text }}</p>
+		</article>
+	}
+</section>
+
+<section class="surface-panel bottom-cta">
+	<div>
+		<p class="section-kicker mb-2">Next step</p>
+		<h2>Open the room list or create the first booking.</h2>
+		<p class="section-copy mb-0">
+			The app is ready for a demo flow: create a room, edit it, and see the result in the table immediately.
+		</p>
+	</div>
+
+	<div class="cta-actions">
+		<a routerLink="/list" class="btn btn-outline-light">Room list</a>
+		<a routerLink="/new" class="btn btn-primary">New booking</a>
+	</div>
+</section>

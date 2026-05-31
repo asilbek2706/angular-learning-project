@@ -1,0 +1,146 @@
+.hero-layout {
+	display: grid;
+	grid-template-columns: minmax(0, 1.4fr) minmax(320px, 0.9fr);
+	gap: 1.5rem;
+	align-items: stretch;
+}
+
+.hero-copy,
+.hero-aside,
+.feature-card,
+.bottom-cta {
+	padding: 1.75rem;
+}
+
+.hero-copy {
+	overflow: hidden;
+}
+
+.hero-text {
+	margin-top: 1rem;
+	max-width: 58ch;
+}
+
+.hero-actions,
+.cta-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.8rem;
+	margin-top: 1.5rem;
+}
+
+.hero-tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.65rem;
+	margin-top: 1.2rem;
+}
+
+.hero-tags span {
+	border-radius: 999px;
+	border: 1px solid rgba(17, 75, 95, 0.15);
+	background: rgba(255, 255, 255, 0.66);
+	padding: 0.55rem 0.85rem;
+	color: var(--accent-strong);
+	font-weight: 700;
+}
+
+.hero-aside {
+	background: linear-gradient(180deg, rgba(17, 75, 95, 0.96), rgba(21, 41, 67, 0.98));
+	color: #f7fbfc;
+}
+
+.hero-aside h2,
+.bottom-cta h2,
+.feature-card h3 {
+	margin: 0;
+	font-family: 'Fraunces', 'Georgia', serif;
+	letter-spacing: -0.02em;
+}
+
+.hero-aside h2 {
+	max-width: 12ch;
+	font-size: clamp(1.9rem, 3vw, 2.6rem);
+	line-height: 0.98;
+}
+
+.stats-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 0.9rem;
+	margin-top: 1.5rem;
+}
+
+.stat-card {
+	border-radius: 1.2rem;
+	padding: 1rem;
+	background: rgba(255, 255, 255, 0.09);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-card strong {
+	display: block;
+	font-size: 1.7rem;
+	line-height: 1;
+}
+
+.stat-card span {
+	display: block;
+	margin-top: 0.55rem;
+	color: rgba(247, 251, 252, 0.8);
+}
+
+.features-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1rem;
+	margin-top: 1rem;
+}
+
+.feature-card h3 {
+	font-size: 1.3rem;
+	margin-bottom: 0.6rem;
+}
+
+.feature-card p {
+	margin: 0;
+	color: var(--muted);
+}
+
+.bottom-cta {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1.2rem;
+	margin-top: 1rem;
+}
+
+.bottom-cta h2 {
+	font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+}
+
+@media (max-width: 991.98px) {
+	.hero-layout,
+	.features-grid,
+	.bottom-cta {
+		grid-template-columns: 1fr;
+	}
+
+	.bottom-cta {
+		display: grid;
+	}
+}
+
+@media (max-width: 767.98px) {
+	.hero-copy,
+	.hero-aside,
+	.feature-card,
+	.bottom-cta {
+		padding: 1.35rem;
+	}
+
+	.stats-grid,
+	.features-grid {
+		grid-template-columns: 1fr;
+	}
+}

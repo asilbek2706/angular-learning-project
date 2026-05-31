@@ -1,14 +1,39 @@
-<div class="container">
-  <div class="mt-3 d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom mt-2">
-    <a href="/" class="d-flex align-items-center link-body-emphasis text-decoration-none">
-      <span class="fs-4">Asilbek-Hotel</span>
-    </a>
-    <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-      <a class="me-3 py-2 link-body-emphasis text-decoration-none" routerLink="/">Home</a>
-      <a class="me-3 py-2 link-body-emphasis text-decoration-none" routerLink="/new">Create a room</a>
-      <a class="me-3 py-2 link-body-emphasis text-decoration-none" routerLink="/list">Room list</a>
-    </nav>
-  </div>
+<div class="app-shell" [class.menu-open]="menuOpen()">
+  <header class="site-header">
+    <div class="container d-flex flex-column flex-lg-row align-items-lg-center justify-content-between">
+      <a class="brand" routerLink="/" aria-label="Asilbek Hotel home">
+        <span class="brand-mark">AH</span>
+        <span class="brand-copy">
+          <strong>{{ title() }}</strong>
+          <small>Booking dashboard</small>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" [attr.aria-expanded]="menuOpen()" (click)="toggleMenu()" [class.open]="menuOpen()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
 
-  <router-outlet></router-outlet>
+      <nav class="site-nav" aria-label="Primary" [class.open]="menuOpen()">
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Home</a>
+        <a routerLink="/new" routerLinkActive="active" (click)="closeMenu()">New booking</a>
+        <a routerLink="/list" routerLinkActive="active" (click)="closeMenu()">Room list</a>
+      </nav>
+
+      <a class="btn btn-primary btn-sm" routerLink="/new" (click)="closeMenu()">Create booking</a>
+    </div>
+  </header>
+
+  <div class="nav-backdrop" *ngIf="menuOpen()" (click)="closeMenu()" [class.open]="menuOpen()"></div>
+
+  <main class="page-stack">
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+
+  <footer class="container site-footer">
+    <span>Simple hotel booking project built with Angular.</span>
+    <span>Clean forms, local storage, polished UI.</span>
+  </footer>
 </div>

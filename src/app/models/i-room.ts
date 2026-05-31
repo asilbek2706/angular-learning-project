@@ -1,7 +1,7 @@
 export interface IRoom {
   id: number;
-  checkIn: Date;
-  checkOut: Date;
+  checkIn: string;
+  checkOut: string;
   roomType: string;
   guestsCount: number;
   fullName: string;

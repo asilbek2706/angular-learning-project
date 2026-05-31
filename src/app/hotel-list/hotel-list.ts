@@ -1,7 +1,7 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { HotelService } from '../services/hotel.service';
 import { IRoom } from '../models/i-room';
-import {DatePipe} from '@angular/common';
+import { DatePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -9,19 +9,14 @@ import { RouterLink } from '@angular/router';
   imports: [DatePipe, RouterLink],
   templateUrl: './hotel-list.html',
   styleUrls: ['./hotel-list.css'],
-  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HotelList implements OnInit {
-  roomList: IRoom[] = [];
-  roomsService = inject(HotelService);
-
-  ngOnInit(): void {
-    this.roomList = this.roomsService.getRooms();
-    console.log(this.roomList);
-  }
+export class HotelList {
+  protected readonly roomsService = inject(HotelService);
+  protected roomList: IRoom[] = this.roomsService.getRooms();
 
   deleteRoom(room: IRoom): void {
-    this.roomsService.deleteRoom(room.id)
+    this.roomsService.deleteRoom(room.id);
     this.roomList = this.roomsService.getRooms();
   }
 }

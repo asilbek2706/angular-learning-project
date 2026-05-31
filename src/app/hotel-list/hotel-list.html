@@ -1,37 +1,58 @@
-<h3 class="text-center text-decoration-underline">Rented Rooms List</h3>
+<section class="surface-panel list-shell">
+  <div class="list-header d-flex flex-column flex-lg-row justify-content-between align-items-lg-end gap-3">
+    <div>
+      <p class="section-kicker">Bookings</p>
+      <h1 class="page-title">Rented rooms</h1>
+      <p class="section-copy mt-3">
+        Review every booking in one place, then edit or remove rooms as needed.
+      </p>
+    </div>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Check-In date</th>
-      <th>Check-Out date</th>
-      <th>Guest Count</th>
-      <th>Phone</th>
-      <th>Room Type</th>
-    </tr>
-  </thead>
-  <tbody>
-    @if (roomList.length === 0) {
-      <tr>
-        <td colspan="6" class="text-center text-danger fw-bold">No Rented Rooms Found!</td>
-      </tr>
-    } @else {
-      @for (item of roomList; track item.id) {
-        <tr>
-          <td>{{ item.fullName }}</td>
-          <td>{{ item.checkIn | date: 'short' }}</td>
-          <td>{{ item.checkOut | date: 'short'}}</td>
-          <td>{{ item.guestsCount }}</td>
-          <td>{{ item.phoneNumber }}</td>
-          <td>{{ item.roomType }}</td>
-          <td class="d-flex gap-2">
-            <button class="btn btn-danger btn-sm" (click)="deleteRoom(item)" >Delete</button>
-            <button class="btn btn-secondary btn-sm" [routerLink]="['/edit', item.id]">Edit</button>
-          </td>
-        </tr>
-      }
-    }
-    <tr></tr>
-  </tbody>
-</table>
+    <a routerLink="/new" class="btn btn-primary">Add booking</a>
+  </div>
+
+  @if (roomList.length === 0) {
+    <div class="empty-state">
+      <div class="empty-state__icon">⟡</div>
+      <h2>No bookings yet</h2>
+      <p>Create the first room booking to see the table and edit flow in action.</p>
+      <a routerLink="/new" class="btn btn-primary">Create booking</a>
+    </div>
+  } @else {
+    <div class="table-responsive mt-4">
+      <table class="table align-middle">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Check-in</th>
+            <th>Check-out</th>
+            <th>Guests</th>
+            <th>Phone</th>
+            <th>Room type</th>
+            <th class="text-end">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of roomList; track item.id) {
+            <tr>
+              <td class="fw-semibold" data-label="Name">{{ item.fullName }}</td>
+              <td data-label="Check-in">{{ item.checkIn | date: 'mediumDate' }}</td>
+              <td data-label="Check-out">{{ item.checkOut | date: 'mediumDate' }}</td>
+              <td data-label="Guests">{{ item.guestsCount }}</td>
+              <td data-label="Phone">{{ item.phoneNumber }}</td>
+              <td data-label="Room type">
+                <span class="badge-soft">{{ item.roomType }}</span>
+              </td>
+              <td class="text-end" data-label="Actions">
+                <div class="btn-group btn-group-sm" role="group" aria-label="Room actions">
+                  <button class="btn btn-outline-primary" type="button" (click)="deleteRoom(item)">Delete</button>
+                  <a class="btn btn-primary" [routerLink]="['/edit', item.id]">Edit</a>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</section>

@@ -7,22 +7,22 @@ const routes: Routes = [
   {
     path: '',
     component: Hotel,
-    title: 'Hotel',
+    title: 'Home',
   },
   {
     path: 'new',
     component: HotelForm,
-    title: 'Create Hotel',
+    title: 'New Booking',
   },
   {
     path: 'edit/:id',
     component: HotelForm,
-    title: 'Create Hotel',
+    title: 'Edit Booking',
   },
   {
     path: 'list',
     component: HotelList,
-    title: 'Hotel List',
+    title: 'Room List',
   },
 ];
 
